@@ -4,7 +4,8 @@ from colorama import Fore, Style
 
 # render deep nested folders
 def render_tree():
-    if sys.argv[1]:
+    if len(sys.argv) > 1:
+        print(sys.argv)
         directory = Path(sys.argv[1])
 
         # check is the path exist and is the path is directory
@@ -21,7 +22,7 @@ def render_tree():
         # render tree
         recursion_folders(directory)
     else:
-        print("Was given no path in the second argument")
+        print(Fore.RED + "Provide the path to directory"+ Style.RESET_ALL)
         return
 
 # sort pathes in order to files
